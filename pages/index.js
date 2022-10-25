@@ -7,7 +7,7 @@ import { ModalWindow } from "../components/ModalWindow";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [filterBy, setFilterBy] = useState("any");
   const [sortBy, setSortBy] = useState("name");
   const [visibleModalWindow, setVisibleModalWindow] = useState(false);
@@ -30,18 +30,24 @@ export default function Home() {
   const changeFilterBy = (e) => {
     return setFilterBy(e.target.value);
   };
-
+  const searchUser = users.filter((user) => {
+    return (
+      user.name.first.toLowerCase().indexOf(serchUserBy.toLowerCase()) > -1 ||
+      user.name.last.toLowerCase().indexOf(serchUserBy.toLowerCase()) > -1 ||
+      user.email.toLowerCase().indexOf(serchUserBy.toLowerCase()) > -1
+    );
+  });
   const filteredUsers = () => {
     if (filterBy === "male") {
-      return users.filter((user) => {
+      return searchUser.filter((user) => {
         return user.gender === "male";
       });
     } else if (filterBy === "female") {
-      return users.filter((user) => {
+      return searchUser.filter((user) => {
         return user.gender === "female";
       });
     } else {
-      return users;
+      return searchUser;
     }
   };
   const sortedUsers = () => {
@@ -63,7 +69,7 @@ export default function Home() {
   };
 
   const paginationUsers = () => {
-    return sortedUsers().slice(page * 20, (page + 1) * 20);
+    return sortedUsers().slice(currentPage * 20, (currentPage + 1) * 20);
   };
 
   return (
@@ -80,7 +86,12 @@ export default function Home() {
         visibleModalWindow={visibleModalWindow}
         setVisibleModalWindow={setVisibleModalWindow}
       />
-      <UsersBlock users={paginationUsers(users)} />
+      <UsersBlock
+        users={paginationUsers()}
+        usersLength={sortedUsers()}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }
