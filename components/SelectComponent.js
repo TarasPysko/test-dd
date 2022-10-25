@@ -1,4 +1,4 @@
-export const Select = ({ onChange, defaultValue, values }) => {
+export const SelectComponent = ({ onChange, defaultValue, values }) => {
   return (
     <>
       <label className="mr-[10px]" htmlFor="sort">

@@ -1,4 +1,4 @@
-import { Select } from "./select";
+import { SelectComponent } from "./SelectComponent";
 
 export const FilterBlock = ({
   changeSortBy,
@@ -11,12 +11,12 @@ export const FilterBlock = ({
   return (
     <div className="max-w-[1300px] mx-auto flex px-[100px] py-[20px] justify-between">
       <div className="flex gap-[10px]">
-        <Select
+        <SelectComponent
           onChange={changeSortBy}
           defaultValue={sortBy}
           values={["Name", "Last Name", "Email"]}
         />
-        <Select
+        <SelectComponent
           onChange={changeFilterBy}
           defaultValue={filterBy}
           values={["Any", "Male", "Female"]}
