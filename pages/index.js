@@ -38,17 +38,9 @@ export default function Home() {
     );
   });
   const filteredUsers = () => {
-    if (filterBy === "male") {
-      return searchUser.filter((user) => {
-        return user.gender === "male";
-      });
-    } else if (filterBy === "female") {
-      return searchUser.filter((user) => {
-        return user.gender === "female";
-      });
-    } else {
-      return searchUser;
-    }
+    return searchUser.filter((user) => {
+      return filterBy === "any" ? user : user.gender === filterBy;
+    });
   };
   const sortedUsers = () => {
     if (sortBy === "name") {
