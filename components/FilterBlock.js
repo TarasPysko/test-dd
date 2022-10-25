@@ -10,7 +10,7 @@ export const FilterBlock = ({
   setVisibleModalWindow,
 }) => {
   return (
-    <div className="flex px-[100px] py-[20px] justify-between">
+    <div className="max-w-[1300px] mx-auto flex px-[100px] py-[20px] justify-between">
       <div className="flex gap-[30px]">
         <SortBy changeSortBy={changeSortBy} sortBy={sortBy} />
         <FilterBy changeFilterBy={changeFilterBy} filterBy={filterBy} />

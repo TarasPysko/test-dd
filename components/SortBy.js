@@ -1,7 +1,11 @@
 export const SortBy = ({ changeSortBy, sortBy }) => {
   return (
-    <form>
+    <>
+      <label className="mr-[10px]" htmlFor="sort">
+        Sort by
+      </label>
       <select
+        id="sort"
         className="border rounded-[5px] w-[100px] h-[30px]"
         defaultValue={sortBy}
         onChange={(e) => changeSortBy(e)}
@@ -14,6 +18,6 @@ export const SortBy = ({ changeSortBy, sortBy }) => {
         </option>
         <option value="email">Email</option>
       </select>
-    </form>
+    </>
   );
 };

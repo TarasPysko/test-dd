@@ -73,7 +73,7 @@ export default function Home() {
   };
 
   return (
-    <div className="max-w-[1300px] mx-auto">
+    <div className="mx-auto">
       {visibleModalWindow && (
         <ModalWindow setVisibleModalWindow={setVisibleModalWindow} />
       )}
