@@ -9,7 +9,7 @@ export const UsersBlock = ({ users }) => {
           return <UserTile user={user} key={user.login.uuid} />;
         })}
       </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };
