@@ -1,4 +1,4 @@
-import { Pagination } from "./pagination";
+/* import { Pagination } from "./pagination"; */
 import { UserTile } from "./UserTile";
 
 export const UsersBlock = ({ users }) => {
