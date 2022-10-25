@@ -65,7 +65,7 @@ export default function Home() {
   const paginationUsers = () => {
     return sortedUsers().slice(page * 20, (page + 1) * 20);
   };
-  console.log(serchUserBy);
+
   return (
     <div className="max-w-[1300px] mx-auto">
       {visibleModalWindow && (
