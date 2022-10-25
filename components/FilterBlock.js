@@ -1,5 +1,4 @@
-import { FilterBy } from "./FilterBy";
-import { SortBy } from "./SortBy";
+import { Select } from "./select";
 
 export const FilterBlock = ({
   changeSortBy,
@@ -11,9 +10,17 @@ export const FilterBlock = ({
 }) => {
   return (
     <div className="max-w-[1300px] mx-auto flex px-[100px] py-[20px] justify-between">
-      <div className="flex gap-[30px]">
-        <SortBy changeSortBy={changeSortBy} sortBy={sortBy} />
-        <FilterBy changeFilterBy={changeFilterBy} filterBy={filterBy} />
+      <div className="flex gap-[10px]">
+        <Select
+          onChange={changeSortBy}
+          defaultValue={sortBy}
+          values={["Name", "Last Name", "Email"]}
+        />
+        <Select
+          onChange={changeFilterBy}
+          defaultValue={filterBy}
+          values={["Any", "Male", "Female"]}
+        />
       </div>
       <button
         onClick={() => setVisibleModalWindow(!visibleModalWindow)}
