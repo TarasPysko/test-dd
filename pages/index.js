@@ -13,6 +13,7 @@ export default function Home() {
   const [visibleModalWindow, setVisibleModalWindow] = useState(false);
   const [serchUserBy, setSerchUserBy] = useState("");
 
+  console.log('22')
   useEffect(() => {
     axios
       .get(
